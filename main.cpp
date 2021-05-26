@@ -34,7 +34,6 @@ int main(void) {
 	ncursesInit();
 	ncursesColors();
 	g.setGameLoop(true);
-	//g.StartGame();
 	g.StartingMenu();
 	g.StartGameLoop();
 	endwin();

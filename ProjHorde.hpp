@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ProjHorde.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asirenko <asirenko@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 19:50:53 by asirenko          #+#    #+#             */
-/*   Updated: 2019/12/08 22:30:48 by asirenko         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef PROJHORDE_HPP
 # define PROJHORDE_HPP
@@ -36,7 +25,6 @@ class ProjHorde
 		int		_currentProj;
 		int		_projsCount;
 		Proj*	_projs;
-		//std::vector<Proj> _projs;
 	
 };
 

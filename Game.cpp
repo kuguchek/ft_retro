@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Game.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asirenko <asirenko@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 15:40:55 by asirenko          #+#    #+#             */
-/*   Updated: 2019/12/08 22:26:26 by asirenko         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "Game.hpp"
 #include "StarHorde.hpp"
@@ -62,51 +51,10 @@ void Game::swap(Game& r, Game& l) {
     std::swap(r._multiplayer, l._multiplayer);
     std::swap(r._stars, l._stars);
 }
-/*void	Game::StartGame(void) {
-	this->_ResizeWindow();
-	this->_NcursesInit();
-	this->GameLoop = true;
-}*/
-
-/*void	Game::EndGame(void) {
-    endwin();
-    setGameLoop(false);
-}*/
 
 void	Game::setGameLoop(bool state) {
     _gameLoop = state;
 }
-
-/*void	Game::_NcursesInit(void) const {
-	initscr();
-	keypad(stdscr, TRUE);
-	cbreak();
-	noecho();
-	nodelay(stdscr, TRUE);
-	erase();
-	curs_set(0);
-}*/
-
-//void	Game::_NcursesClose(void) const {
-//	endwin();
-//}
-
-/*void	Game::_ResizeWindow(void) const {
-	std::cout << "\e[8;" << std::to_string(H) << ";" << std::to_string(W) <<"t";
-}*/
-
-/*void	Game::Coloring(void) const {
-    start_color();
-    init_color(17, 800, 0, 0);
-    init_color(18, 1000, 750, 790);
-    init_pair(32, 18, COLOR_BLACK);
-    init_pair(1, COLOR_GREEN, COLOR_BLACK);
-	init_pair(2, 17, COLOR_BLACK);
-	init_pair(3, COLOR_CYAN, COLOR_BLACK);
-	init_pair(4, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(5, 17, COLOR_BLACK);
-	init_pair(6, COLOR_RED, COLOR_BLACK);
-}*/
 
 void		Game::moveStars(void) const {
     for (unsigned int i = 0; i < _starsCount; i++)
@@ -118,7 +66,7 @@ void		Game::printStars(void) const {
         _stars[i].print();
 }
 
-void    Game::StatusBar(Player & p) const {
+void    Game::statusBar(Player & p) const {
 	int i = 0;
 	attron(COLOR_PAIR(32) | A_BOLD);
 	while(i < Game::W){
@@ -139,7 +87,7 @@ void    Game::StatusBar(Player & p) const {
     attroff(COLOR_PAIR(32) | A_BOLD);
 }
 
-void    Game::StatusBarMultiplayer(Player & p, Player & s) const {
+void    Game::statusBarMultiplayer(Player & p, Player & s) const {
     int i = 0;
     attron(COLOR_PAIR(32) | A_BOLD);
     while(i < Game::W){
@@ -292,7 +240,7 @@ void Game::thirdStartScreen(void) {
     }
 }
 
-void    Game::StartingMenu(void) {
+void    Game::startingMenu(void) {
     char list[2][5] = {"PLAY", "EXIT"};
     int i;
     int input;
@@ -342,7 +290,6 @@ void    Game::StartingMenu(void) {
             {
                 secondStartScreen();
                 thirdStartScreen();
-                //third screen started
                 break ;
             }
     }
@@ -350,26 +297,9 @@ void    Game::StartingMenu(void) {
     refresh();
 }
 
-void    Game::EndMenuMultiplayer(Player & winner, Player & p2,
+void    Game::endMenuMultiplayer(Player & winner, Player & p2,
                                 EnemyHorde &e, ProjHorde & ph, ProjHorde & ph2) {
-    //this->Coloring();
     printBackground();
-    /*attron(COLOR_PAIR(17) | A_BOLD);
-    int i = 0;
-    int j;
-    while(i < Game::W - 1)
-    {
-        j = 0;
-        while(j < Game::H) {
-            mvprintw(j, i, "___|");
-            if (i == Game::W){
-                j = 0;
-            }
-            j++;
-        }
-        i += 4;
-    }
-    attroff(COLOR_PAIR(17) | A_BOLD);*/
     std::string t = "    TIME     " + std::to_string(winner.getSeconds()) + " ";
     std::string score = "    SCORE    " + std::to_string(winner.getScore()) + " ";
     attron(COLOR_PAIR(32) | A_BOLD);
@@ -414,25 +344,8 @@ void    Game::EndMenuMultiplayer(Player & winner, Player & p2,
     refresh();
 }
 
-void    Game::EndMenu(Player & p, EnemyHorde &e,
+void    Game::endMenu(Player & p, EnemyHorde &e,
                         ProjHorde & ph) {
-    //this->Coloring();
-    /*attron(COLOR_PAIR(17) | A_BOLD);
-    int i = 0;
-    int j;
-    while(i < Game::W - 1)
-    {
-        j = 0;
-        while(j < Game::H) {
-            mvprintw(j, i, "___|");
-            if (i == Game::W){
-                j = 0;
-            }
-            j++;
-        }
-        i += 4;
-    }
-    attroff(COLOR_PAIR(17) | A_BOLD);*/
     printBackground();
     std::string t = "    TIME     " + std::to_string(p.getSeconds()) + " ";
     std::string score = "    SCORE    " + std::to_string(p.getScore()) + " ";
@@ -469,7 +382,6 @@ void    Game::EndMenu(Player & p, EnemyHorde &e,
             resetData(p, ph);
             erase();
             refresh();
-            //return ;
             break ;
         }
         else if (input != 27) {}
@@ -478,8 +390,6 @@ void    Game::EndMenu(Player & p, EnemyHorde &e,
     refresh();
 }
 
-//need for multiplayer
-
 void    Game::resetData(Player & p,
                         ProjHorde & ph) {
     p.spawnPlayer();
@@ -487,22 +397,6 @@ void    Game::resetData(Player & p,
     p.setLives(3);
     p.setScore(0); 
 }
-
-/*void    Game::CheckDeath(Player & p, Player & p2, EnemyHorde &e,
-                            ProjHorde & ph, ProjHorde & ph2) {
-    if (this->_multiplayer == false)
-    {
-        if (p.getLives() <= 0)
-            this->EndMenu(p, e, ph);
-    }
-    else
-    {
-        if (p.getLives() <= 0)
-            this->EndMenuMultiplayer(p2, p, p2, e, ph, ph2);
-        else if (p2.getLives() <= 0)
-            this->EndMenuMultiplayer(p, p, p2, e, ph, ph2);
-    }
-}*/
 
 void    Game::hooksMultiplayer(Player &p, Player& p2, ProjHorde& ph, ProjHorde& ph2) {
 
@@ -533,7 +427,7 @@ void    Game::hooksMultiplayer(Player &p, Player& p2, ProjHorde& ph, ProjHorde& 
     }
 }
 
-void    Game::Hooks(Player &p, ProjHorde & ph)
+void    Game::hooks(Player &p, ProjHorde & ph)
 {
     int input = getch();
     if (input == KEY_DOWN)
@@ -567,7 +461,7 @@ void    Game::checkProjectileEnemyCollision(Player & p,
     }
 }
 
-void Game::GameLoopMultiplayer(Player & p, EnemyHorde & e, ProjHorde & ph) {
+void Game::gameLoopMultiplayer(Player & p, EnemyHorde & e, ProjHorde & ph) {
     Player p2;
     ProjHorde ph2(_projsCount);
 
@@ -586,19 +480,19 @@ void Game::GameLoopMultiplayer(Player & p, EnemyHorde & e, ProjHorde & ph) {
         ph.moveProjs(p);
         ph2.moveProjs(p2);
         e.moveEnemies();
-        moveStars(); //stars
+        moveStars();
         erase();
         ph.printProjs();
         ph2.printProjs();
-        printStars(); //stars
+        printStars();
         p.printPlayer();
         p2.printPlayer();
         e.printEnemies();
         StatusBarMultiplayer(p, p2);
         if (p.getLives() <= 0)
-            this->EndMenuMultiplayer(p2, p, e, ph2, ph);
+            endMenuMultiplayer(p2, p, e, ph2, ph);
         else if (p2.getLives() <= 0)
-            this->EndMenuMultiplayer(p, p2, e, ph, ph2);
+            endMenuMultiplayer(p, p2, e, ph, ph2);
         usleep(32000);
     }
 }
@@ -607,44 +501,29 @@ void	Game::StartGameLoop(void) {
     _enemiesCount *= _difficulty;
     _projsCount /= _difficulty;
 	Player p;
-    //Player p2;
-    //ProjHorde ph2(_projsCount);
 	EnemyHorde e(_enemiesCount);
-	//StarHorde s(_starsCount);
 	ProjHorde ph(_projsCount);
 	
     if (_multiplayer == true)
-        GameLoopMultiplayer(p, e, ph);
+        gameLoopMultiplayer(p, e, ph);
     else
     {
         while (_gameLoop) {
             ph.spawnProjs(p);
-            //if (this->_multiplayer)
-            //    ph2.spawnProjs(p2);
-            Hooks(p, ph); //for single player
+            hooks(p, ph);
             e.collisionEnemy(p);
-            //if (this->_multiplayer)
-            //e.collisionEnemy(p2);
             checkProjectileEnemyCollision(p, e, ph); //for single player
             ph.moveProjs(p);
-            //if (this->_multiplayer)
-            //    ph2.moveProjs(p2);
             e.moveEnemies();
-            moveStars(); //stars
+            moveStars();
             erase();
             ph.printProjs();
-            //if (this->_multiplayer)
-            //    ph2.printProjs();
-            printStars(); //stars
+            printStars();
             p.printPlayer();
-            // if (this->_multiplayer)
-             //    p2.printPlayer();
             e.printEnemies();
-            StatusBar(p);
-            //if (this->_multiplayer)
-            //    StatusBarMultiplayer(p, p2);
+            statusBar(p);
             if (p.getLives() <= 0)
-                EndMenu(p, e, ph); //for single player
+                endMenu(p, e, ph);
             usleep(32000);
         }
 	}

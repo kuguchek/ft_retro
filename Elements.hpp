@@ -3,7 +3,7 @@
 
 class Elements {
 	public:
-		Elements() : _posX(0), _posY(0) {} //Star(posX, posY)
+		Elements() : _posX(0), _posY(0) {}
 		Elements(Elements const& src) {
 			_posX = src._posX;
 			_posY = src._posY;
@@ -17,8 +17,6 @@ class Elements {
 			return *this;
 		}
 		virtual ~Elements() {}
-		//virtual void	move(void) = 0;
-		//virtual void	spawn(void) = 0;
 		virtual void	print(void)		const = 0;
 		int 	getPosX(void)	const {
 			return _posX;

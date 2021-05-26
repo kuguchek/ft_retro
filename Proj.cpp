@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Proj.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asirenko <asirenko@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 19:42:27 by asirenko          #+#    #+#             */
-/*   Updated: 2019/12/08 22:28:50 by asirenko         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "Proj.hpp"
 
@@ -28,6 +17,7 @@ Proj	&Proj::operator=(Proj const &src) {
 	if (this != &src) {
 		_posX = src._posX;
 		_posY = src._posY;
+		_isFired = src._isFired;
 	}
 	return *this;
 }
@@ -46,14 +36,6 @@ void	Proj::move(Player p) {
 		spawn(p);
 	}
 }
-
-/*int		Proj::getPosX(void) const {
-	return this->_posX;
-}
-
-int		Proj::getPosY(void) const {
-	return this->_posY;
-}*/
 
 void	Proj::print(void) const {
 	if (_isFired && getPosX() >= 0 &&

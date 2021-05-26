@@ -1,19 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Star.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asirenko <asirenko@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 18:24:59 by asirenko          #+#    #+#             */
-/*   Updated: 2019/12/08 22:31:47 by asirenko         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "Star.hpp"
 
 Star::Star(void) : Elements() {
-	//_posX = rand() % 500;
 	_posX = rand() % Game::W - 2;
 	_posY = rand() % Game::H;
 }
@@ -33,7 +21,6 @@ Star	&Star::operator=(Star const &src) {
 	return *this;
 }
 
-//rand() % 5
 void	Star::print(void) const {
 	int i = rand() % 6 + 1;
 	if (getPosX() >= 0 && getPosX() < Game::W - 1 &&
@@ -49,7 +36,6 @@ void	Star::move(void) {
 	if (_posX < 0)
 	{
 		_posY = rand() % Game::H;
-		//_posX = Game::W - 1 + rand() % 500;
 		_posX = rand() % Game::W - 2;
 	}
 }

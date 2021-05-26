@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Player.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asirenko <asirenko@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 16:06:57 by asirenko          #+#    #+#             */
-/*   Updated: 2019/12/08 22:11:25 by asirenko         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "Player.hpp"
 #include "Game.hpp"
@@ -131,11 +120,11 @@ void	Player::setId(int id) {
 
 void	Player::printPlayer(void) {
 	attron(COLOR_PAIR(32) | A_BOLD);
-	mvaddch(this->_posY, this->_posX, '>');
-	mvaddch(this->_posY, this->_posX + 1, '-');
+	mvaddch(_posY, _posX, '>');
+	mvaddch(_posY, _posX + 1, '-');
 	attroff(COLOR_PAIR(32) | A_BOLD);
 	attron(COLOR_PAIR(2) | A_BOLD);
-	mvaddch(this->_posY - 1, this->_posX - 1, '\\');
-	mvaddch(this->_posY + 1, this->_posX - 1, '/');
+	mvaddch(_posY - 1, _posX - 1, '\\');
+	mvaddch(_posY + 1, _posX - 1, '/');
 	attroff(COLOR_PAIR(2) | A_BOLD);
 }

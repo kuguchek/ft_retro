@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Player.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asirenko <asirenko@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 16:07:30 by asirenko          #+#    #+#             */
-/*   Updated: 2019/12/08 22:28:22 by asirenko         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef PLAYER_HPP
 # define PLAYER_HPP
@@ -45,7 +34,7 @@ class Player
 		int 		_posY;
 		int 		_lives;
 		int 		_score;
-		int		_secondsStart;
+		int			_secondsStart;
 		int			_id;
 };
 

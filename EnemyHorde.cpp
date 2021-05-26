@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   EnemyHorde.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asirenko <asirenko@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 17:57:19 by asirenko          #+#    #+#             */
-/*   Updated: 2019/12/08 22:22:51 by asirenko         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "EnemyHorde.hpp"
 #include <cstdlib>
@@ -58,10 +47,6 @@ void		EnemyHorde::spawnEnemies(void) const {
 	for (int i = 0; i < _enemiesCount; i++)
 		_enemies[i].spawn();
 }
-
-/*int			EnemyHorde::getEnemiesCount(void) const {
-	return this->_enemiesCount;
-}*/
 
 Enemy		& EnemyHorde::getEnemy(int id) const {
 	return _enemies[id];

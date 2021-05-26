@@ -1,18 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ProjHorde.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asirenko <asirenko@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 19:52:34 by asirenko          #+#    #+#             */
-/*   Updated: 2019/12/08 22:30:06 by asirenko         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "ProjHorde.hpp"
-
-//int ProjHorde::_currentProj = 0;
 
 ProjHorde::ProjHorde(unsigned int n) :
 					_currentProj(0),
@@ -71,7 +58,6 @@ void		ProjHorde::resetProj(Player p) {
 }
 
 void		ProjHorde::fireProj(void) {
-	//static int currentProj = 0;
 	if (_currentProj >= _projsCount)
 		_currentProj = 0;
 	if (_projs[_currentProj]._isFired == false)
@@ -80,11 +66,6 @@ void		ProjHorde::fireProj(void) {
 		_currentProj++;
 	}
 }
-
-//int			ProjHorde::getProjsCount(void) const {
-//	return this->_projsCount;
-//}
-
 
 Proj &	ProjHorde::getProj(int id) const {
 	return _projs[id];

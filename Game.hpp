@@ -21,13 +21,9 @@ class Game
 		~Game(void);
 
 		Game			&operator=(Game const &src);
-
-		//void			StartGame(void);
-		//void			EndGame(void);
 		void			StartGameLoop(void);
-		void			GameLoopMultiplayer(Player& p, EnemyHorde& e, ProjHorde& ph);
-		void			StartingMenu(void);
-		//void			Coloring(void)	const;
+		void			gameLoopMultiplayer(Player& p, EnemyHorde& e, ProjHorde& ph);
+		void			startingMenu(void);
 		void			setGameLoop(bool state);
 		void			printStars(void) const;
 		void			moveStars(void) const;
@@ -35,13 +31,12 @@ class Game
 		void			secondStartScreen(void);
 		void			swap(Game& r, Game& l);
 		void			thirdStartScreen(void);
-		void 			StatusBar(Player & p)	const;
-		void 			StatusBarMultiplayer(Player & p, Player & s)	const;
-		void			EndMenu(Player & p, EnemyHorde &e,ProjHorde & ph);
-		void			EndMenuMultiplayer(Player & winner,Player & p2, EnemyHorde &e, ProjHorde & ph, ProjHorde & ph2);
-		//void   		 	CheckDeath(Player & p, Player & p2, EnemyHorde &e, ProjHorde & ph, ProjHorde & ph2);
+		void 			statusBar(Player & p)	const;
+		void 			statusBarMultiplayer(Player & p, Player & s)	const;
+		void			endMenu(Player & p, EnemyHorde &e,ProjHorde & ph);
+		void			endMenuMultiplayer(Player & winner, Player & p2, EnemyHorde &e, ProjHorde & ph, ProjHorde & ph2);
 		void			resetData(Player & p, ProjHorde & ph);
-		void    		Hooks(Player &p, ProjHorde & ph);
+		void    		hooks(Player &p, ProjHorde & ph);
 		void			hooksMultiplayer(Player& p, Player& p2, ProjHorde& ph, ProjHorde& ph2);
 		void    		checkProjectileEnemyCollision(Player & p, EnemyHorde &e, ProjHorde & ph);
 		static const int W = 140;
@@ -55,11 +50,6 @@ class Game
 		bool			_multiplayer;
 		unsigned int	_starsCount;
 		Star*			_stars;
-		
-		//void			_ResizeWindow(void) const;
-		//void			_NcursesInit(void) const;
-		//void			_NcursesClose(void) const;
-	
 };
 
 #endif
