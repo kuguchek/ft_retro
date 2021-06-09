@@ -4,6 +4,6 @@
 The goal of this project is to implement a simplistic shoot-em-up-style game in 
 terminal, using ncurces library.
 
-![sdw.gif]({{site.baseurl}}/sdw.gif)
+![screenshot.gif]({{site.baseurl}}/screenshot.gif)
 
 You can compile project using `make` and run `ft_retro`
